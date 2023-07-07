@@ -1,6 +1,8 @@
-cd $HOME
+#!/bin/sh
+
 guix shell --network --container --emulate-fhs \
 	--preserve='^TERM$' \
+	--no-cwd \
 	nss-certs \
 	bash coreutils curl grep sed gawk make cmake findutils \
 	libgccjit gmp openssl \
@@ -10,7 +12,6 @@ guix shell --network --container --emulate-fhs \
 	sqlite \
 	valgrind gdb \
 	openssh git \
-	glib \
 	util-linux coreutils htop wget procps less \
 	tar gzip xz \
 	--share=$HOME/containers/tmphome=$HOME -- bash
