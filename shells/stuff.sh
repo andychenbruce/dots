@@ -1,9 +1,9 @@
 #!/bin/sh
 
 guix shell --network --container --emulate-fhs \
-	--preserve='^TERM$' \
+	--pure \
 	--no-cwd \
-	--share=$HOME/containers/tmphome=$HOME \
+	--share=$HOME/shells/tmphome=$HOME \
 	--manifest=manifest.scm \
 	-- bash
 
