@@ -15,7 +15,7 @@ AUDIO_OPTIONS=(
     -device hda-output,audiodev=snd0 )
 
 NETWORK_OPTIONS=(
-    -nic user,model=virtio-net-pci,hostfwd=tcp::5555-:5555,hostfwd=tcp::8888-:22 )
+    -nic user,model=virtio-net-pci,hostfwd=tcp::6666-:6666,hostfwd=tcp::8888-:22 )
 
 GPU_OPTIONS=(
     -vga qxl )
@@ -27,7 +27,9 @@ SPICE_OPTIONS=(
     -spice disable-ticketing=on,unix=on,addr=poo.sock
     -device virtio-serial
     -chardev spicevmc,id=spicechannel0,name=vdagent
-    -device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0 )
+    -device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0 
+    -chardev socket,path=/tmp/qga.sock,server=on,wait=off,id=qga0
+    -device virtserialport,chardev=qga0,name=org.qemu.guest_agent.0 )
 
 qemu-system-x86_64 \
     "${GENERIC_OPTIONS[@]}" \
