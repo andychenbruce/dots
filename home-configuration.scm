@@ -6,12 +6,14 @@
 
 (use-modules (gnu)
 	     (gnu home)
+	     ;;(nongnu packages video)
+	     (gnu packages freedesktop)
 	     (gnu packages)
 	     (gnu services)
 	     (guix gexp)
 	     (gnu home services shells)
 	     (gnu home services desktop))
-(use-package-modules freedesktop)
+;;(use-package-modules freedesktop)
 
 (home-environment
   ;; Below is the list of packages that will show up in your
@@ -22,6 +24,7 @@
 					"swaybg"
 					"swayidle"
 					"swaylock"
+					"grim"
 					"foot"
 					;; -- audio
 					"pipewire"
@@ -43,7 +46,8 @@
 					"python-pip"
 					;; -- browser
 					"firefox-wayland"
-					"intel-vaapi-driver"
+					"intel-media-driver"
+					"libva-utils"
 					;; -- images
 					"imagemagick"
 					;; -- vm
@@ -65,9 +69,11 @@
 					"xdot"
 					;; -- development
 					"node"
+					"cmake"
 					"valgrind"
 					"make"
 					"clang"
+					"lld"
 					"gcc-toolchain"
 					"git"
 					"python"

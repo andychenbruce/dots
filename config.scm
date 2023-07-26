@@ -2,8 +2,8 @@
 ;; used in this configuration.
 (use-modules (gnu)
 	     (gnu services desktop)
-	     (nongnu packages linux)
 	     (nongnu system linux-initrd)
+	     (nongnu packages linux)
 	     (nongnu packages firmware))
 (use-service-modules desktop networking ssh xorg dbus sound)
 (use-package-modules vim
@@ -15,7 +15,7 @@
 		     terminals
 		     linux
 		     bootloaders
-		     fonts)
+		     polkit)
 
 (operating-system
   (locale "en_US.utf8")
@@ -45,7 +45,7 @@
 			  fwupd-nonfree
 			  grub
 			  grub-hybrid
-			  font-gnu-unifont)
+			  polkit)
 		    %base-packages))
 
   ;; Below is the list of system services.  To search for available
@@ -54,8 +54,8 @@
   (services
     (append (list
 	      (service openssh-service-type)
-	      (simple-service 'fwupd-dbus dbus-root-service-type (list fwupd-nonfree))
-	      (simple-service 'fwupd-polkit polkit-service-type (list fwupd-nonfree)))
+	      (simple-service 'fwupd-nonfree-dbus dbus-root-service-type (list fwupd-nonfree))
+	      (simple-service 'fwupd-nonfree-polkit polkit-service-type (list fwupd-nonfree)))
 	    (modify-services %desktop-services
 			     (delete gdm-service-type)
 			     ;; (delete network-manager-applet)
@@ -80,7 +80,7 @@
 		(targets (list "/boot/efi"))
 		(keyboard-layout keyboard-layout)))
   (initrd-modules (append '("vmd") %base-initrd-modules))
-  (kernel-arguments '("modprobe.blacklist=nouveau"))
+  ;;(kernel-arguments '("modprobe.blacklist=nouveau"))
   (swap-devices (list (swap-space
 			(target (uuid
 				  "2567c2db-e188-47fb-8159-e6d1b0e8106d")))))

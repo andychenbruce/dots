@@ -2,10 +2,11 @@
 
 qemu-system-x86_64 \
 	-nodefaults \
+	-cpu host,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time \
 	-machine vmport=off \
 	-enable-kvm \
 	-m 4G \
-	-smp 8 \
+	-smp 2 \
 	-bios /gnu/store/im3j574czs0vh6369qfzaiazgp2vs43j-ovmf-20170116-1.13a50a6/share/firmware/ovmf_x64.bin \
 	-vga qxl \
 	-audiodev pa,id=snd0 \
@@ -17,6 +18,7 @@ qemu-system-x86_64 \
 	-device virtio-serial \
 	-chardev spicevmc,id=spicechannel0,name=vdagent \
 	-device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0 \
+	-device virtio-balloon \
 	-rtc base=localtime,clock=host \
 	#-usb -device usb-tablet \
 	#-drive file=/mnt/poo/stuff/isos/Win8.1_English_x64.iso,media=cdrom \
