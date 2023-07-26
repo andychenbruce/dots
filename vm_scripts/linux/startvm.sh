@@ -1,0 +1,40 @@
+#!/bin/sh
+
+GENERIC_OPTIONS=( 
+    -nodefaults
+    -enable-kvm
+    -bios /gnu/store/im3j574czs0vh6369qfzaiazgp2vs43j-ovmf-20170116-1.13a50a6/share/firmware/ovmf_x64.bin
+    -cpu host
+    -m 4G
+    -smp cpus=2
+    -device virtio-balloon )
+
+AUDIO_OPTIONS=( 
+    -audiodev pa,id=snd0
+    -device ich9-intel-hda
+    -device hda-output,audiodev=snd0 )
+
+NETWORK_OPTIONS=(
+    -nic user,model=virtio-net-pci,hostfwd=tcp::5555-:5555,hostfwd=tcp::8888-:22 )
+
+GPU_OPTIONS=(
+    -vga qxl )
+
+DISK_OPTIONS=(
+    -drive file=disk.qcow2,index=0,media=disk,if=virtio )
+
+SPICE_OPTIONS=(
+    -spice disable-ticketing=on,unix=on,addr=poo.sock
+    -device virtio-serial
+    -chardev spicevmc,id=spicechannel0,name=vdagent
+    -device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0 )
+
+qemu-system-x86_64 \
+    "${GENERIC_OPTIONS[@]}" \
+    "${AUDIO_OPTIONS[@]}" \
+    "${NETWORK_OPTIONS[@]}" \
+    "${GPU_OPTIONS[@]}" \
+    "${DISK_OPTIONS[@]}" \
+    "${SPICE_OPTIONS[@]}" \
+    #-drive file=/mnt/poo/stuff/isos/debian-12.1.0-amd64-netinst.iso \
+    #-usb -device usb-tablet \
