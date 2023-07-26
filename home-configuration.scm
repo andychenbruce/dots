@@ -12,7 +12,8 @@
 	     (gnu services)
 	     (guix gexp)
 	     (gnu home services shells)
-	     (gnu home services desktop))
+	     (gnu home services desktop)
+	     (gnu home services fontutils))
 ;;(use-package-modules freedesktop)
 
 (home-environment
@@ -91,4 +92,7 @@
 	       (home-fish-configuration
 		 (environment-variables '(("fish_greeting" . "")
 					  ("GUIX_PROFILE" . "/home/pooman123/.guix-profile")))
-		 (config (list (plain-file "path-stuff" "fish_add_path -Pa ~/.local/bin"))))))))
+		 (config (list (plain-file "path-stuff" "fish_add_path -Pa ~/.local/bin")
+			       (plain-file "path-stuff" "set --export FC_LANG en_US.utf8"))))))))
+
+;;FC_LANG=en_US.utf8

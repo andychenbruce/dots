@@ -18,7 +18,7 @@
 		     polkit)
 
 (operating-system
-  (locale "en_US.utf8")
+  (locale "zh_CN.utf8")
   (timezone "Asia/Shanghai")
   (keyboard-layout (keyboard-layout "us"))
   (host-name "poopcomputer")
