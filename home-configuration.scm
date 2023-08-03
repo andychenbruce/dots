@@ -26,7 +26,7 @@
 					"swayidle"
 					"swaylock"
 					"grim"
-					"foot"
+					"alacritty"
 					;; -- audio
 					"pipewire"
 					"wireplumber"

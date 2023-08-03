@@ -41,11 +41,7 @@
   (packages (append (list (specification->package "nss-certs")
 			  neovim
 			  fish
-			  ncurses
-			  fwupd-nonfree
-			  grub
-			  grub-hybrid
-			  polkit)
+			  ncurses)
 		    %base-packages))
 
   ;; Below is the list of system services.  To search for available
@@ -53,9 +49,7 @@
 
   (services
     (append (list
-	      (service openssh-service-type)
-	      (simple-service 'fwupd-nonfree-dbus dbus-root-service-type (list fwupd-nonfree))
-	      (simple-service 'fwupd-nonfree-polkit polkit-service-type (list fwupd-nonfree)))
+	      (service openssh-service-type))
 	    (modify-services %desktop-services
 			     (delete gdm-service-type)
 			     ;; (delete network-manager-applet)
