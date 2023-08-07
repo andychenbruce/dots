@@ -38,4 +38,5 @@
         "less"
         "tar"
         "gzip"
-        "xz"))
+        "xz"
+	"python"))

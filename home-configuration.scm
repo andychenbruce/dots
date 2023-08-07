@@ -47,7 +47,7 @@
 					"python-pip"
 					;; -- browser
 					"firefox-wayland"
-					"intel-media-driver"
+					"intel-media-driver-nonfree"
 					"libva-utils"
 					;; -- images
 					"imagemagick"
@@ -57,6 +57,7 @@
 					"qemu"
 					"ovmf"
 					;; -- utils
+					"fish-foreign-env"
 					"man-pages"
 					"lm-sensors"
 					"brightnessctl"
@@ -81,7 +82,7 @@
 					"gdb"
 					;; -- music
 					"mpd"
-					"ncmpcpp"
+					"mpd-mpc"
 					)))
 
   ;; Below is the list of Home services.  To search for available
@@ -90,9 +91,7 @@
     (list
       (service home-fish-service-type
 	       (home-fish-configuration
-		 (environment-variables '(("fish_greeting" . "")
-					  ("GUIX_PROFILE" . "/home/pooman123/.guix-profile")))
-		 (config (list (plain-file "path-stuff" "fish_add_path -Pa ~/.local/bin")
-			       (plain-file "path-stuff" "set --export FC_LANG en_US.utf8"))))))))
+		 (config (list (plain-file "path-stuff" 
+					   "set -x GUIX_PROFILE $HOME/.guix-profile\nset --prepend fish_function_path $HOME/.guix-home/profile/share/fish/functions/\nfenv source $HOME/.guix-profile/etc/profile\nfish_add_path -Pa ~/.local/bin\nset --export FC_LANG en_US.utf8")))
+		(environment-variables '(("fish_greeting" . ""))))))))
 
-;;FC_LANG=en_US.utf8
