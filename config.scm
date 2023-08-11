@@ -15,7 +15,9 @@
 		     terminals
 		     linux
 		     bootloaders
-		     polkit)
+		     polkit
+		     certs
+		     admin)
 
 (operating-system
   (locale "zh_CN.utf8")
@@ -38,18 +40,30 @@
   ;; Packages installed system-wide.  Users can also install packages
   ;; under their own account: use 'guix search KEYWORD' to search
   ;; for packages and 'guix install PACKAGE' to install a package.
-  (packages (append (list (specification->package "nss-certs")
+  (packages (append (list nss-certs
 			  neovim
 			  fish
 			  ncurses)
-		    %base-packages))
+		    (filter 
+		      (lambda (x) 
+			(cond ((member x 
+				       (map specification->package
+					    '("nano" "nvi" "mg"))) '#f) 
+			      (else '#t))) 
+		      %base-packages)))
 
   ;; Below is the list of system services.  To search for available
   ;; services, run 'guix system search KEYWORD' in a terminal.
 
   (services
     (append (list
-	      (service openssh-service-type))
+	      (service openssh-service-type)
+	      (service screen-locker-service-type
+		       (screen-locker-configuration
+			 (name "swaylock")
+			 (program (file-append swaylock "/bin/swaylock"))
+			 (using-pam? #t)
+			 (using-setuid? #f))))
 	    (modify-services %desktop-services
 			     (delete gdm-service-type)
 			     ;; (delete network-manager-applet)
@@ -61,11 +75,7 @@
 								      %default-substitute-urls))
 							    (authorized-keys
 							      (append (list (local-file "./signing-key.pub"))
-								      %default-authorized-guix-keys))))
-
-			     ))
-
-    )
+								      %default-authorized-guix-keys)))))))
 
   ;; other stuff =================================================
 
@@ -84,6 +94,7 @@
 			 (device (uuid
 				   "459af246-2ef1-4dda-a268-7304f50e3633"
 				   'btrfs))
+			 (options "compress=zstd")
 			 (type "btrfs"))
 		       (file-system
 			 (mount-point "/boot/efi")

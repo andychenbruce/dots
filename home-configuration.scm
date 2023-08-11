@@ -92,6 +92,6 @@
       (service home-fish-service-type
 	       (home-fish-configuration
 		 (config (list (plain-file "path-stuff" 
-					   "set -x GUIX_PROFILE $HOME/.guix-profile\nset --prepend fish_function_path $HOME/.guix-home/profile/share/fish/functions/\nfenv source $HOME/.guix-profile/etc/profile\nfish_add_path -Pa ~/.local/bin\nset --export FC_LANG en_US.utf8")))
+					   "set -x GUIX_PROFILE $HOME/.guix-profile\nset --prepend fish_function_path $HOME/.guix-home/profile/share/fish/functions/\nfenv source $HOME/.guix-profile/etc/profile\nfish_add_path -Pa ~/.local/bin\nset --export FC_LANG POSIX")))
 		(environment-variables '(("fish_greeting" . ""))))))))
 
