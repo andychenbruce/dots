@@ -6,15 +6,16 @@
 
 (use-modules (gnu)
 	     (gnu home)
-	     ;;(nongnu packages video)
+	     (gnu home services)
 	     (gnu packages freedesktop)
 	     (gnu packages)
 	     (gnu services)
+	     (guix channels)
 	     (guix gexp)
 	     (gnu home services shells)
 	     (gnu home services desktop)
-	     (gnu home services fontutils))
-;;(use-package-modules freedesktop)
+	     (gnu home services fontutils)
+	     (gnu home services guix))
 
 (home-environment
   ;; Below is the list of packages that will show up in your
@@ -89,9 +90,27 @@
   ;; services, run 'guix home search KEYWORD' in a terminal.
   (services
     (list
+      (service home-xdg-configuration-files-service-type
+	       (list `("sway/config"
+		       ,(local-file "configs/sway/config"))
+		     `("alacritty/alacritty.yml"
+		       ,(local-file "configs/alacritty/alacritty.yml"))
+		     `("mpd/mpd.conf"
+		       ,(local-file "configs/mpd/mpd.conf"))))
       (service home-fish-service-type
 	       (home-fish-configuration
 		 (config (list (plain-file "path-stuff" 
 					   "set -x GUIX_PROFILE $HOME/.guix-profile\nset --prepend fish_function_path $HOME/.guix-home/profile/share/fish/functions/\nfenv source $HOME/.guix-profile/etc/profile\nfish_add_path -Pa ~/.local/bin\nset --export FC_LANG POSIX")))
-		(environment-variables '(("fish_greeting" . ""))))))))
+		 (environment-variables '(("fish_greeting" . "")))))
+      (simple-service 'variant-packages-service
+		      home-channels-service-type
+		      (list
+			(channel
+			  (name 'nonguix)
+			  (url "https://gitlab.com/nonguix/nonguix")
+			  (introduction
+			    (make-channel-introduction
+			      "897c1a470da759236cc11798f4e0a5f7d4d59fbc"
+			      (openpgp-fingerprint
+				"2A39 3FFF 68F4 EF7A 3D29  12AF 6F51 20A0 22FB B2D5")))))))))
 
