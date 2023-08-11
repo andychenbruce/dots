@@ -58,16 +58,26 @@
   (services
     (append (list
 	      (service openssh-service-type)
+	      (service upower-service-type)
+	      (service accountsservice-service-type)
+	      (service polkit-service-type)
+	      (service elogind-service-type)
+	      (service dbus-root-service-type)
+
+	      
+	      (service alsa-service-type)
+
+	      (service network-manager-service-type)
+	      (service wpa-supplicant-service-type)    ;needed by NetworkManager
+	      (service ntp-service-type)
+
 	      (service screen-locker-service-type
 		       (screen-locker-configuration
 			 (name "swaylock")
 			 (program (file-append swaylock "/bin/swaylock"))
 			 (using-pam? #t)
 			 (using-setuid? #f))))
-	    (modify-services %desktop-services
-			     (delete gdm-service-type)
-			     ;; (delete network-manager-applet)
-			     (delete pulseaudio-service-type)
+	    (modify-services %base-services
 			     (guix-service-type config => (guix-configuration
 							    (inherit config)
 							    (substitute-urls
