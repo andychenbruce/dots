@@ -25,5 +25,5 @@ colors:
     white:   '0xffffff'
 
 font:
-  size: 8
+  size: 10
 

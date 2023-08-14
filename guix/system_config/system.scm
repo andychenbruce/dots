@@ -1,23 +1,23 @@
-;; Indicate which modules to import to access the variables
-;; used in this configuration.
-(use-modules (gnu)
-	     (gnu services desktop)
-	     (nongnu system linux-initrd)
-	     (nongnu packages linux)
-	     (nongnu packages firmware))
+(use-modules
+  (gnu)
+  (gnu services desktop)
+  (nongnu system linux-initrd)
+  (nongnu packages linux)
+  (nongnu packages firmware))
 (use-service-modules desktop networking ssh xorg dbus sound)
-(use-package-modules vim
-		     wm
-		     freedesktop
-		     shells
-		     ncurses
-		     xdisorg
-		     terminals
-		     linux
-		     bootloaders
-		     polkit
-		     certs
-		     admin)
+(use-package-modules
+  vim
+  wm
+  freedesktop
+  shells
+  ncurses
+  xdisorg
+  terminals
+  linux
+  bootloaders
+  polkit
+  certs
+  admin)
 
 (operating-system
   (locale "zh_CN.utf8")
@@ -27,7 +27,6 @@
   (kernel linux)
   (initrd microcode-initrd)
   (firmware (list linux-firmware sof-firmware))
-  ;; The list of user accounts ('root' is implicit).
   (users (cons* (user-account
 		  (name "pooman123")
 		  (comment "Pooman123")
@@ -36,10 +35,6 @@
 		  (home-directory "/home/pooman123")
 		  (supplementary-groups '("wheel" "netdev" "audio" "video" "kvm")))
 		%base-user-accounts))
-
-  ;; Packages installed system-wide.  Users can also install packages
-  ;; under their own account: use 'guix search KEYWORD' to search
-  ;; for packages and 'guix install PACKAGE' to install a package.
   (packages (append (list nss-certs
 			  neovim
 			  fish
@@ -51,10 +46,6 @@
 					    '("nano" "nvi" "mg"))) '#f) 
 			      (else '#t))) 
 		      %base-packages)))
-
-  ;; Below is the list of system services.  To search for available
-  ;; services, run 'guix system search KEYWORD' in a terminal.
-
   (services
     (append (list
 	      (service openssh-service-type)
@@ -64,7 +55,6 @@
 	      (service elogind-service-type)
 	      (service dbus-root-service-type)
 
-	      
 	      (service alsa-service-type)
 
 	      (service network-manager-service-type)
@@ -86,8 +76,6 @@
 							    (authorized-keys
 							      (append (list (local-file "./signing-key.pub"))
 								      %default-authorized-guix-keys)))))))
-
-  ;; other stuff =================================================
 
   (bootloader (bootloader-configuration
 		(bootloader grub-efi-bootloader)
