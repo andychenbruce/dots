@@ -22,24 +22,24 @@
 	"swaybg"
 	"swayidle"
 	"swaylock"
+	"fish"
 	"grim"
-	"alacritty"
+	"foot"
 	;; -- audio
 	"pipewire"
 	"wireplumber"
-	"alsa-utils"
 	"pulsemixer"
+	"alsa-utils"
 	;; -- gtk stuff
 	"font-google-noto"
-	"font-gnu-unifont"
 	"adwaita-icon-theme"
+	"hicolor-icon-theme"
 	"gsettings-desktop-schemas"
+	"dconf"
 	"xdg-desktop-portal"
-	"xdg-desktop-portal-gtk"
 	"xdg-desktop-portal-wlr"
 	;; -- emacs
 	"emacs-next-pgtk"
-	;; -- yt-dlp
 	"ffmpeg"
 	"python-pip"
 	;; -- browser
@@ -49,33 +49,27 @@
 	;; -- images
 	"imagemagick"
 	;; -- vm
-	"samba"
 	"spice-gtk"
 	"qemu"
 	"ovmf"
+	"samba"
 	;; -- utils
-	"net-tools"
 	"fish-foreign-env"
-	"man-pages"
+	"htop"
+	"unzip"
 	"lm-sensors"
 	"brightnessctl"
 	"tmux"
-	"htop"
 	"file"
-	"unzip"
 	"curl"
 	"iproute2"
-	"sshfs"
+	"lsof"
 	"xdot"
-	"xlsclients"
 	;; -- development
-	"node"
-	"cmake"
-	"valgrind"
 	"make"
-	"clang"
+	"valgrind"
 	"lld"
-	"gcc-toolchain"
+	"clang-toolchain"
 	"git"
 	"python"
 	"gdb"
@@ -86,16 +80,17 @@
     (list
       (service home-xdg-configuration-files-service-type
 	       (list `("sway/config"
-		       ,(local-file "configs/sway/config"))
-		     `("alacritty/alacritty.yml"
-		       ,(local-file "configs/alacritty/alacritty.yml"))
+		       ,(local-file "my_configs/sway.conf"))
+		     `("foot/foot.ini"
+		       ,(local-file "my_configs/foot.ini"))
 		     `("mpd/mpd.conf"
-		       ,(local-file "configs/mpd/mpd.conf"))))
+		       ,(local-file "my_configs/mpd.conf"))
+		     `("emacs/init.el"
+		       ,(local-file "my_configs/emacs.el"))))
       (service home-fish-service-type
 	       (home-fish-configuration
-		 (config (list (plain-file "path-stuff" 
-					   "set -x GUIX_PROFILE $HOME/.guix-profile\nset --prepend fish_function_path $HOME/.guix-home/profile/share/fish/functions/\nfenv source $HOME/.guix-profile/etc/profile\nfish_add_path -Pa ~/.local/bin\nset --export FC_LANG POSIX")))
-		 (environment-variables '(("fish_greeting" . "")))))
+		 (config (list (local-file "my_configs/fish.fish")))
+		 (environment-variables '(("FC_LANG" . "POSIX")))))
       (simple-service 'variant-packages-service
 		      home-channels-service-type
 		      (list
@@ -107,4 +102,3 @@
 			      "897c1a470da759236cc11798f4e0a5f7d4d59fbc"
 			      (openpgp-fingerprint
 				"2A39 3FFF 68F4 EF7A 3D29  12AF 6F51 20A0 22FB B2D5")))))))))
-

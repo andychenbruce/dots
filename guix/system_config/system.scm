@@ -1,5 +1,6 @@
 (use-modules
   (gnu)
+  (gnu services base)
   (gnu services desktop)
   (nongnu system linux-initrd)
   (nongnu packages linux)
@@ -17,7 +18,8 @@
   bootloaders
   polkit
   certs
-  admin)
+  admin
+  fonts)
 
 (operating-system
   (locale "zh_CN.utf8")
@@ -25,6 +27,7 @@
   (keyboard-layout (keyboard-layout "us"))
   (host-name "poopcomputer")
   (kernel linux)
+  (kernel-arguments '())
   (initrd microcode-initrd)
   (firmware (list linux-firmware sof-firmware))
   (users (cons* (user-account
@@ -58,7 +61,7 @@
 	      (service alsa-service-type)
 
 	      (service network-manager-service-type)
-	      (service wpa-supplicant-service-type)    ;needed by NetworkManager
+	      (service wpa-supplicant-service-type)
 	      (service ntp-service-type)
 
 	      (service screen-locker-service-type
@@ -68,6 +71,7 @@
 			 (using-pam? #t)
 			 (using-setuid? #f))))
 	    (modify-services %base-services
+			     (delete console-font-service-type)
 			     (guix-service-type config => (guix-configuration
 							    (inherit config)
 							    (substitute-urls
