@@ -3,7 +3,7 @@
 GENERIC_OPTIONS=( 
     -nodefaults
     -enable-kvm
-    -bios /gnu/store/im3j574czs0vh6369qfzaiazgp2vs43j-ovmf-20170116-1.13a50a6/share/firmware/ovmf_x64.bin
+    -bios /gnu/store/dk4m2z88bhfwj6m4s2jmz3nd2hbnc7q0-ovmf-20170116-1.13a50a6/share/firmware/ovmf_x64.bin
     -cpu host
     -m 4G
     -smp cpus=2
@@ -37,6 +37,6 @@ qemu-system-x86_64 \
     "${NETWORK_OPTIONS[@]}" \
     "${GPU_OPTIONS[@]}" \
     "${DISK_OPTIONS[@]}" \
-    "${SPICE_OPTIONS[@]}" \
-    #-drive file=/mnt/poo/stuff/isos/debian-12.1.0-amd64-netinst.iso \
-    #-usb -device usb-tablet \
+    "${SPICE_OPTIONS[@]}"
+    #-drive file=/asdf.iso,media=cdrom
+
