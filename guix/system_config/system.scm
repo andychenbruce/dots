@@ -4,22 +4,16 @@
   (gnu services desktop)
   (nongnu system linux-initrd)
   (nongnu packages linux)
-  (nongnu packages firmware))
+  (nongnu packages firmware)
+  (guix packages))
 (use-service-modules desktop networking ssh xorg dbus sound)
 (use-package-modules
   vim
   wm
-  freedesktop
   shells
-  ncurses
-  xdisorg
-  terminals
   linux
   bootloaders
-  polkit
-  certs
-  admin
-  fonts)
+  certs)
 
 (operating-system
   (locale "zh_CN.utf8")
@@ -38,10 +32,8 @@
 		  (home-directory "/home/pooman123")
 		  (supplementary-groups '("wheel" "netdev" "audio" "video" "kvm")))
 		%base-user-accounts))
-  (packages (append (list nss-certs
-			  neovim
-			  fish
-			  ncurses)
+  (packages (append (map specification->package
+			 '("nss-certs" "neovim" "ncurses"))
 		    (filter 
 		      (lambda (x) 
 			(cond ((member x 
@@ -87,16 +79,22 @@
 		(keyboard-layout keyboard-layout)))
   (initrd-modules (append '("vmd") %base-initrd-modules))
   ;;(kernel-arguments '("modprobe.blacklist=nouveau"))
-  (swap-devices (list (swap-space
-			(target (uuid
-				  "2567c2db-e188-47fb-8159-e6d1b0e8106d")))))
-
+  ;;(swap-devices (list (swap-space
+  ;;			(target (uuid
+  ;;				  "2567c2db-e188-47fb-8159-e6d1b0e8106d")))))
   (file-systems (cons* (file-system
 			 (mount-point "/")
 			 (device (uuid
 				   "459af246-2ef1-4dda-a268-7304f50e3633"
 				   'btrfs))
 			 (options "compress=zstd")
+			 (type "btrfs"))
+		       (file-system
+			 (mount-point "/swap")
+			 (device (uuid
+				   "459af246-2ef1-4dda-a268-7304f50e3633"
+				   'btrfs))
+			 (options "subvol=swap")
 			 (type "btrfs"))
 		       (file-system
 			 (mount-point "/boot/efi")
@@ -109,4 +107,11 @@
 			 (type "tmpfs")
 			 (check? #f)
 			 (flags '(no-suid no-dev)))
-		       %base-file-systems)))
+		       %base-file-systems))
+  (swap-devices
+    (list
+      (swap-space
+	(target "/swap/swapfile")
+	(dependencies (filter (file-system-mount-point-predicate "/swap")
+			      file-systems))))))
+
