@@ -15,13 +15,11 @@
  (packages
   (specifications->packages
    (list
-    "neovim"
     ;; -- wm stuff
     "sway"
     "swaybg"
     "swayidle"
     "swaylock"
-    "fish"
     "grim"
     "foot"
     ;; -- audio
@@ -37,8 +35,8 @@
     "dconf"
     "xdg-desktop-portal"
     "xdg-desktop-portal-wlr"
-    "xdg-desktop-portal-gtk"
-    "gtk+"
+    "gtk"  ;;gtk4 schemas
+    "gtk+" ;;gtk3 schemas
     ;; -- emacs
     "emacs-next-pgtk"
     "ffmpeg"
@@ -53,27 +51,24 @@
     "virt-viewer"
     "qemu"
     "ovmf"
-    "samba"
-    ;; -- utils
+    ;; -- shell
     "fish-foreign-env"
+    "fish"
+    "tmux"
+    "neovim"
+    ;; -- utils
     "htop"
-    "unzip"
     "lm-sensors"
     "brightnessctl"
-    "tmux"
     "file"
     "curl"
-    "iproute2"
+    "unzip"
     "lsof"
     "xdot"
-    ;; -- development
-    "make"
-    "valgrind"
-    "lld"
-    "clang-toolchain"
+    "iproute2"
+    "ripgrep"
     "git"
     "python"
-    "gdb"
     ;; -- music
     "mpd"
     "mpd-mpc")))
