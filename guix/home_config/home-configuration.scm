@@ -21,7 +21,7 @@
     "swayidle"
     "swaylock"
     "grim"
-    "foot"
+    "alacritty"
     ;; -- audio
     "pipewire"
     "wireplumber"
@@ -56,6 +56,11 @@
     "fish"
     "tmux"
     "neovim"
+    "exa"
+    "bat"
+    "fd"
+    "du-dust"
+    "ripgrep"
     ;; -- utils
     "htop"
     "lm-sensors"
@@ -66,7 +71,6 @@
     "lsof"
     "xdot"
     "iproute2"
-    "ripgrep"
     "git"
     "python"
     ;; -- music
@@ -81,8 +85,6 @@
 		    ,(local-file "my_configs/mpd.conf"))
 		  `("tmux/tmux.conf"
 		    ,(local-file "my_configs/tmux.conf"))
-		  `("foot/foot.ini"
-		    ,(local-file "my_configs/foot.ini"))
 		  `("emacs/init.el"
 		    ,(local-file "my_configs/emacs.el"))))
    (service home-fish-service-type

@@ -9,3 +9,7 @@ end
 
 set --unexport fish_greeting ""
 set --export --path LD_LIBRARY_PATH $LIBRARY_PATH
+
+alias ls "exa"
+alias cat "bat"
+
