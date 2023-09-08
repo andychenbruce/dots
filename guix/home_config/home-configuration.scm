@@ -9,7 +9,8 @@
  (gnu home services shells)
  (gnu home services desktop)
  (gnu home services fontutils)
- (gnu home services guix))
+ (gnu home services guix)
+ (gnu home services xdg))
 
 (home-environment
  (packages
@@ -87,6 +88,10 @@
 		    ,(local-file "my_configs/tmux.conf"))
 		  `("emacs/init.el"
 		    ,(local-file "my_configs/emacs.el"))))
+   (service home-xdg-user-directories-service-type
+	    (home-xdg-user-directories-configuration
+	     (documents   "$HOME/docs")
+	     (download    "$HOME/下载")))
    (service home-fish-service-type
 	    (home-fish-configuration
 	     (config (list (local-file "my_configs/fish.fish")))
