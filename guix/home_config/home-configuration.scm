@@ -90,8 +90,14 @@
 		    ,(local-file "my_configs/emacs.el"))))
    (service home-xdg-user-directories-service-type
 	    (home-xdg-user-directories-configuration
-	     (documents   "$HOME/docs")
-	     (download    "$HOME/下载")))
+	     (desktop     "$HOME/桌面")
+	     (documents   "$HOME/文档")
+	     (download    "$HOME/下载")
+	     (music       "$HOME/.mpd/音乐")
+	     (pictures    "$HOME/图片")
+	     (publicshare "$HOME/公共")
+	     (templates   "$HOME/模板")
+	     (videos      "$HOME/视频")))
    (service home-fish-service-type
 	    (home-fish-configuration
 	     (config (list (local-file "my_configs/fish.fish")))
