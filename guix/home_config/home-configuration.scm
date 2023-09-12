@@ -33,7 +33,6 @@
     "adwaita-icon-theme"
     "hicolor-icon-theme"
     "gsettings-desktop-schemas"
-    "dconf"
     "xdg-desktop-portal"
     "xdg-desktop-portal-wlr"
     "gtk"  ;;gtk4 schemas
@@ -63,7 +62,6 @@
     "du-dust"
     "ripgrep"
     ;; -- utils
-    "htop"
     "lm-sensors"
     "brightnessctl"
     "file"
@@ -87,7 +85,9 @@
 		  `("tmux/tmux.conf"
 		    ,(local-file "my_configs/tmux.conf"))
 		  `("emacs/init.el"
-		    ,(local-file "my_configs/emacs.el"))))
+		    ,(local-file "my_configs/emacs.el"))
+		  `("alacritty/alacritty.yml"
+		    ,(local-file "my_configs/alacritty.yml"))))
    (service home-xdg-user-directories-service-type
 	    (home-xdg-user-directories-configuration
 	     (desktop     "$HOME/桌面")

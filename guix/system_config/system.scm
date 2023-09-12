@@ -81,10 +81,6 @@
 	      (targets (list "/boot/efi"))
 	      (keyboard-layout keyboard-layout)))
  (initrd-modules (append '("vmd") %base-initrd-modules))
- ;;(kernel-arguments '("modprobe.blacklist=nouveau"))
- ;;(swap-devices (list (swap-space
- ;;			(target (uuid
- ;;				  "2567c2db-e188-47fb-8159-e6d1b0e8106d")))))
  (file-systems (cons* (file-system
 		       (mount-point "/")
 		       (device (uuid
