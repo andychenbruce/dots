@@ -39,6 +39,7 @@
     "gtk+" ;;gtk3 schemas
     ;; -- emacs
     "emacs-next-pgtk"
+    "tree-sitter-rust"
     "ffmpeg"
     "python-pip"
     ;; -- browser
