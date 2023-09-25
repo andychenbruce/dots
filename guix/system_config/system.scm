@@ -17,7 +17,7 @@
 
 (operating-system
  (locale "zh_CN.utf8")
- (timezone "Asia/Shanghai")
+ (timezone "America/Los_Angeles")
  (keyboard-layout (keyboard-layout "us"))
  (host-name "poopcomputer")
  (kernel linux)

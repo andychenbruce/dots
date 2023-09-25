@@ -3,4 +3,8 @@
 (setq inhibit-startup-screen t)
 (pixel-scroll-precision-mode)
 (global-display-line-numbers-mode 1)
-(setq treesit-extra-load-path '("~/.guix-home/profile/lib/tree-sitter/"))
+(load-theme 'tsdh-light)
+(tool-bar-mode -1)
+(custom-set-variables
+ '(treesit-font-lock-level 4))
+(setq eglot-ignored-server-capabilities '(:inlayHintProvider :hoverProvider))
