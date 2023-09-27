@@ -21,6 +21,7 @@
     "swaybg"
     "swayidle"
     "swaylock"
+    "gammastep"
     "grim"
     "alacritty"
     ;; -- audio
