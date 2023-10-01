@@ -3,8 +3,22 @@
 (setq inhibit-startup-screen t)
 (pixel-scroll-precision-mode)
 (global-display-line-numbers-mode 1)
-(load-theme 'tsdh-light)
 (tool-bar-mode -1)
 (custom-set-variables
  '(treesit-font-lock-level 4))
 (setq eglot-ignored-server-capabilities '(:inlayHintProvider :hoverProvider))
+(setq auto-mode-alist
+      (append '(("\\.rs\\'" . rust-ts-mode)
+                ("\\.yml\\'" . yaml-ts-mode)
+		("\\.yaml\\'" . yaml-ts-mode)
+		("CMakeLists\\.txt\\'" . cmake-ts-mode)
+		("Dockerfile\\'" . dockerfile-ts-mode))
+              auto-mode-alist))
+(setq major-mode-remap-alist
+      '((sh-mode . bash-ts-mode)
+	(js-json-mode . json-ts-mode)
+	(python-mode . python-ts-mode)
+	(conf-toml-mode . toml-ts-mode)
+	(c-mode . c-ts-mode)
+	(c++-mode . c++-ts-mode)
+	(c-or-c++-mode . c-or-c++-ts-mode)))
