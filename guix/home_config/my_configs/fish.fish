@@ -12,4 +12,6 @@ if set -q GUIX_ENVIRONMENT
 end
 
 alias ls "exa"
+alias ll "exa --long --git"
+alias la "exa --long --git --all"
 alias cat "bat"
