@@ -23,6 +23,7 @@
     "swaylock"
     "gammastep"
     "grim"
+    "slurp"
     "alacritty"
     ;; -- audio
     "pipewire"
@@ -40,8 +41,6 @@
     "gtk+" ;;gtk3 schemas
     ;; -- emacs
     "emacs-pgtk"
-    "ffmpeg"
-    "python-pip"
     ;; -- browser
     "firefox-wayland"
     "intel-media-driver-nonfree"
@@ -63,6 +62,7 @@
     "du-dust"
     "ripgrep"
     ;; -- utils
+    "ffmpeg"
     "lm-sensors"
     "brightnessctl"
     "file"
@@ -73,6 +73,11 @@
     "iproute2"
     "git"
     "python"
+    "python-pip"
+    ;; -- docker
+    "docker"
+    "containerd"
+    "docker-cli"
     ;; -- music
     "mpd"
     "mpd-mpc")))

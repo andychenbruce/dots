@@ -30,8 +30,11 @@
 		(group "users")
 		(shell (file-append fish "/bin/fish"))
 		(home-directory "/home/pooman123")
-		(supplementary-groups '("wheel" "netdev" "audio" "video" "kvm")))
+		(supplementary-groups '("wheel" "netdev" "audio" "video" "kvm" "docker")))
 	       %base-user-accounts))
+ (groups (cons* (user-group
+		 (name "docker"))
+		%base-groups))
  (packages (append (map specification->package
 			'("nss-certs" "neovim" "ncurses"))
 		   (filter 
