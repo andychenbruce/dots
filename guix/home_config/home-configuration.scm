@@ -74,6 +74,7 @@
     "git"
     "python"
     "python-pip"
+    "smartmontools"
     ;; -- docker
     "docker"
     "containerd"
