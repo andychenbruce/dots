@@ -54,8 +54,7 @@
     ;; -- shell
     "fish-foreign-env"
     "fish"
-    "tmux"
-    "neovim"
+    "kakoune"
     "exa"
     "bat"
     "fd"
@@ -68,6 +67,7 @@
     "file"
     "curl"
     "unzip"
+    "zstd"
     "lsof"
     "xdot"
     "iproute2"
@@ -86,15 +86,17 @@
   (list
    (service home-xdg-configuration-files-service-type
 	    (list `("sway/config"
-		    ,(local-file "my_configs/sway.conf"))
+		    ,(local-file "my_configs/sway/config"))
 		  `("mpd/mpd.conf"
-		    ,(local-file "my_configs/mpd.conf"))
-		  `("tmux/tmux.conf"
-		    ,(local-file "my_configs/tmux.conf"))
+		    ,(local-file "my_configs/mpd/mpd.conf"))
+		  `("zellij/config.kdl"
+		    ,(local-file "my_configs/zellij/config.kdl"))
+		  `("zellij/layouts/default.kdl"
+		    ,(local-file "my_configs/zellij/layouts/default.kdl"))
 		  `("emacs/init.el"
-		    ,(local-file "my_configs/emacs.el"))
+		    ,(local-file "my_configs/emacs/init.el"))
 		  `("alacritty/alacritty.yml"
-		    ,(local-file "my_configs/alacritty.yml"))))
+		    ,(local-file "my_configs/alacritty/alacritty.yml"))))
    (service home-xdg-user-directories-service-type
 	    (home-xdg-user-directories-configuration
 	     (desktop     "$HOME/桌面")
@@ -107,7 +109,7 @@
 	     (videos      "$HOME/视频")))
    (service home-fish-service-type
 	    (home-fish-configuration
-	     (config (list (local-file "my_configs/fish.fish")))
+	     (config (list (local-file "my_configs/fish_startup.fish")))
 	     (environment-variables '(("FC_LANG" . "POSIX")
 				      ("VISUAL" . "emacs")))))
    (simple-service 'variant-packages-service

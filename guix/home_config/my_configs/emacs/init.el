@@ -1,7 +1,5 @@
-(defun tetris ())
 (setq default-input-method "chinese-tonepy-punct")
 (setq inhibit-startup-screen t)
-(pixel-scroll-precision-mode)
 (global-display-line-numbers-mode 1)
 (tool-bar-mode -1)
 (custom-set-variables
