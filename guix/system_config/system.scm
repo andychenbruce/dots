@@ -36,7 +36,7 @@
 		 (name "docker"))
 		%base-groups))
  (packages (append (map specification->package
-			'("nss-certs" "neovim" "ncurses"))
+			'("nss-certs" "kakoune" "ncurses"))
 		   (filter 
 		    (lambda (x) 
 		      (cond ((member x 

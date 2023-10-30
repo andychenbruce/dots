@@ -25,6 +25,7 @@
     "grim"
     "slurp"
     "alacritty"
+    "wl-clipboard"
     ;; -- audio
     "pipewire"
     "wireplumber"
@@ -72,6 +73,7 @@
     "xdot"
     "iproute2"
     "git"
+    "git-lfs"
     "python"
     "python-pip"
     "smartmontools"
