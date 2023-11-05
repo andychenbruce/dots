@@ -77,6 +77,7 @@
     "python"
     "python-pip"
     "smartmontools"
+    "parted"
     ;; -- docker
     "docker"
     "containerd"

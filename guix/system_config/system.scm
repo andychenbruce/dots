@@ -52,6 +52,7 @@
 	   (service polkit-service-type)
 	   (service elogind-service-type)
 	   (service dbus-root-service-type)
+	   (service udisks-service-type)
 
 	   (service alsa-service-type)
 

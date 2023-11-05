@@ -8,7 +8,7 @@ output DP-2 position 3840,0
 
 input "1267:10774:ELAN2097:00_04F3:2A16" map_to_output eDP-1
 
-exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 exec pipewire
 exec pipewire-pulse
