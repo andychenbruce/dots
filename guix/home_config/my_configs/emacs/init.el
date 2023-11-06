@@ -1,10 +1,12 @@
-(setq default-input-method "chinese-tonepy-punct")
-(setq inhibit-startup-screen t)
-(global-display-line-numbers-mode 1)
-(tool-bar-mode -1)
 (custom-set-variables
+ '(context-menu-mode t)
+ '(custom-enabled-themes '(deeper-blue))
+ '(default-input-method "chinese-tonepy-punct")
+ '(fido-vertical-mode t)
+ '(inhibit-startup-screen t)
+ '(tool-bar-mode nil)
  '(treesit-font-lock-level 4))
-(setq eglot-ignored-server-capabilities '(:inlayHintProvider :hoverProvider))
+;; (setq eglot-ignored-server-capabilities '(:inlayHintProvider :hoverProvider))
 (setq auto-mode-alist
       (append '(("\\.rs\\'" . rust-ts-mode)
                 ("\\.yml\\'" . yaml-ts-mode)
