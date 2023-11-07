@@ -11,11 +11,6 @@ if set -q GUIX_ENVIRONMENT
 	set --export --path LD_LIBRARY_PATH $LIBRARY_PATH
 end
 
-alias ls "exa"
-alias ll "exa --long --git"
-alias la "exa --long --git --all"
-alias cat "bat --style=plain"
-
 function enter 
 	guix shell --check --manifest=$argv
 end

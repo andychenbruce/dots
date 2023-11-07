@@ -55,12 +55,6 @@
     ;; -- shell
     "fish-foreign-env"
     "fish"
-    "kakoune"
-    "exa"
-    "bat"
-    "fd"
-    "du-dust"
-    "ripgrep"
     ;; -- utils
     "ffmpeg"
     "lm-sensors"
