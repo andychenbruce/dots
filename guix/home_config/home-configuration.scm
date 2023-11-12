@@ -21,18 +21,18 @@
     "swaybg"
     "swayidle"
     "swaylock"
-    "gammastep"
     "grim"
     "slurp"
-    "alacritty"
     "wl-clipboard"
     ;; -- audio
     "pipewire"
     "wireplumber"
-    "pulsemixer"
-    "alsa-utils"
-    ;; -- gtk stuff
+    ;; -- fonts
     "font-google-noto"
+    "font-google-noto-emoji"
+    "font-google-noto-sans-cjk"
+    "font-google-noto-serif-cjk"
+    ;; -- gtk stuff
     "adwaita-icon-theme"
     "hicolor-icon-theme"
     "gsettings-desktop-schemas"
@@ -45,9 +45,7 @@
     ;; -- browser
     "firefox-wayland"
     "intel-media-driver-nonfree"
-    "libva-utils"
-    ;; -- images
-    "imagemagick"
+    
     ;; -- vm
     "virt-viewer"
     "qemu"
@@ -56,27 +54,18 @@
     "fish-foreign-env"
     "fish"
     ;; -- utils
-    "ffmpeg"
-    "lm-sensors"
-    "brightnessctl"
     "file"
     "curl"
-    "unzip"
-    "zstd"
-    "lsof"
-    "xdot"
     "iproute2"
     "git"
     "git-lfs"
+    "lm-sensors"
+    "brightnessctl"
     "python"
     "python-pip"
-    "smartmontools"
-    "parted"
-    ;; -- docker
-    "docker"
-    "containerd"
-    "docker-cli"
-    ;; -- music
+    ;; -- media
+    "imagemagick"
+    "ffmpeg"
     "mpd"
     "mpd-mpc")))
  (services
@@ -91,9 +80,7 @@
 		  `("zellij/layouts/default.kdl"
 		    ,(local-file "my_configs/zellij/layouts/default.kdl"))
 		  `("emacs/init.el"
-		    ,(local-file "my_configs/emacs/init.el"))
-		  `("alacritty/alacritty.yml"
-		    ,(local-file "my_configs/alacritty/alacritty.yml"))))
+		    ,(local-file "my_configs/emacs/init.el"))))
    (service home-xdg-user-directories-service-type
 	    (home-xdg-user-directories-configuration
 	     (desktop     "$HOME/桌面")
@@ -107,8 +94,7 @@
    (service home-fish-service-type
 	    (home-fish-configuration
 	     (config (list (local-file "my_configs/fish_startup.fish")))
-	     (environment-variables '(("FC_LANG" . "POSIX")
-				      ("VISUAL" . "emacs")))))
+	     (environment-variables '(("VISUAL" . "emacs")))))
    (simple-service 'variant-packages-service
 		   home-channels-service-type
 		   (list
