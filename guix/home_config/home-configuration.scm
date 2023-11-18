@@ -75,10 +75,6 @@
 		    ,(local-file "my_configs/sway/config"))
 		  `("mpd/mpd.conf"
 		    ,(local-file "my_configs/mpd/mpd.conf"))
-		  `("zellij/config.kdl"
-		    ,(local-file "my_configs/zellij/config.kdl"))
-		  `("zellij/layouts/default.kdl"
-		    ,(local-file "my_configs/zellij/layouts/default.kdl"))
 		  `("emacs/init.el"
 		    ,(local-file "my_configs/emacs/init.el"))))
    (service home-xdg-user-directories-service-type

@@ -14,11 +14,3 @@ end
 function enter 
 	guix shell --check --manifest=$argv
 end
-
-# emacs dir tracking
-if [ -n "$INSIDE_EMACS" ]
-	function prompt_AnSiT -e fish_prompt
-		printf "\eAnSiTc %s\n" "$PWD"
-	end
-	printf "\eAnSiTu %s\n" "$USER"
-end

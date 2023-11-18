@@ -1,9 +1,10 @@
 (custom-set-variables
- '(context-menu-mode t)
  '(custom-enabled-themes '(tango-dark))
  '(default-input-method "chinese-tonepy-punct")
  '(fido-vertical-mode t)
  '(inhibit-startup-screen t)
+ '(menu-bar-mode nil)
+ '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(treesit-font-lock-level 4))
 ;; (setq eglot-ignored-server-capabilities '(:inlayHintProvider :hoverProvider))
@@ -23,11 +24,4 @@
 	(c++-mode . c++-ts-mode)
 	(c-or-c++-mode . c-or-c++-ts-mode)))
 (custom-set-faces
- '(default
-   ((t(
-       :family "Noto Sans Mono CJK SC"
-       :foundry "GOOG"
-       :slant normal
-       :weight regular
-       :height 113
-       :width normal)))))
+ '(default ((t (:family "Noto Sans Mono CJK SC")))))
