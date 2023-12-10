@@ -10,7 +10,7 @@
 (use-package-modules
  vim
  wm
- shells
+ bash
  linux
  bootloaders
  certs)
@@ -28,7 +28,7 @@
 		(name "pooman123")
 		(comment "Pooman123")
 		(group "users")
-		(shell (file-append fish "/bin/fish"))
+		(shell (file-append bash "/bin/bash"))
 		(home-directory "/home/pooman123")
 		(supplementary-groups '("wheel" "netdev" "audio" "video" "kvm" "docker")))
 	       %base-user-accounts))
@@ -117,4 +117,3 @@
     (target "/swap/swapfile")
     (dependencies (filter (file-system-mount-point-predicate "/swap")
 			  file-systems))))))
-

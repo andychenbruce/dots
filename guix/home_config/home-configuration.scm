@@ -50,9 +50,6 @@
     "virt-viewer"
     "qemu"
     "ovmf"
-    ;; -- shell
-    "fish-foreign-env"
-    "fish"
     ;; -- utils
     "file"
     "curl"
@@ -66,6 +63,7 @@
     ;; -- media
     "imagemagick"
     "ffmpeg"
+    "libwebp"
     "mpd"
     "mpd-mpc")))
  (services
@@ -87,10 +85,14 @@
 	     (publicshare "$HOME/公共")
 	     (templates   "$HOME/模板")
 	     (videos      "$HOME/视频")))
-   (service home-fish-service-type
-	    (home-fish-configuration
-	     (config (list (local-file "my_configs/fish_startup.fish")))
-	     (environment-variables '(("VISUAL" . "emacs")))))
+   (service home-bash-service-type
+	    (home-bash-configuration
+	     (bashrc
+	      (list
+	       (local-file "my_configs/bash/bashrc_extra.sh")))
+	     (bash-profile
+	      (list
+	       (local-file "my_configs/bash/bash_profile_extra.sh")))))
    (simple-service 'variant-packages-service
 		   home-channels-service-type
 		   (list
