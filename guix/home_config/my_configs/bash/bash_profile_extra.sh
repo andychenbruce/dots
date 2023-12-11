@@ -1,2 +1,2 @@
 source ~/.cargo/env
-PATH=~/local/bin:$PATH
+PATH=~/.local/bin:$PATH
