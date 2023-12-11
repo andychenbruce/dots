@@ -1,2 +1,2 @@
-source $HOME/.cargo/env
-
+source ~/.cargo/env
+PATH=~/local/bin:$PATH
