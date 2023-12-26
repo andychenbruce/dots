@@ -103,7 +103,7 @@ bar {
 	position top
 	icon_theme Adwaita
 
-	status_command while date; do sleep 1; done
+	status_command while date --iso-8601=seconds; do sleep 1; done
 
 	colors {
 		statusline #ffffff

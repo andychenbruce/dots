@@ -43,9 +43,8 @@
     ;; -- emacs
     "emacs-pgtk"
     ;; -- browser
-    "firefox-wayland"
+    "firefox"
     "intel-media-driver-nonfree"
-    
     ;; -- vm
     "virt-viewer"
     "qemu"

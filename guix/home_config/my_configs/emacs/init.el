@@ -7,13 +7,8 @@
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(treesit-font-lock-level 4))
-;; (setq eglot-ignored-server-capabilities '(:inlayHintProvider :hoverProvider))
 (setq auto-mode-alist
-      (append '(("\\.rs\\'" . rust-ts-mode)
-                ("\\.yml\\'" . yaml-ts-mode)
-		("\\.yaml\\'" . yaml-ts-mode)
-		("CMakeLists\\.txt\\'" . cmake-ts-mode)
-		("Dockerfile\\'" . dockerfile-ts-mode))
+      (append '(("\\.rs\\'" . rust-ts-mode))
               auto-mode-alist))
 (setq major-mode-remap-alist
       '((sh-mode . bash-ts-mode)
@@ -23,5 +18,10 @@
 	(c-mode . c-ts-mode)
 	(c++-mode . c++-ts-mode)
 	(c-or-c++-mode . c-or-c++-ts-mode)))
+(set-fontset-font t 'cjk-misc "Noto Sans CJK SC")
+(set-fontset-font t 'han "Noto Sans CJK SC")
+(set-fontset-font t 'kana "Noto Sans CJK JP")
+(set-fontset-font t 'hangul "Noto Sans CJK KR")
+(set-fontset-font t 'balinese "Noto Sans Balinese")
 (custom-set-faces
- '(default ((t (:family "Noto Sans Mono CJK SC")))))
+ '(default ((t (:family "Noto Sans Mono")))))
