@@ -27,6 +27,8 @@
     ;; -- audio
     "pipewire"
     "wireplumber"
+    "bluez"
+    "blueman"
     ;; -- fonts
     "font-google-noto"
     "font-google-noto-emoji"
@@ -49,6 +51,7 @@
     "virt-viewer"
     "qemu"
     "ovmf"
+    "bridge-utils"
     ;; -- utils
     "file"
     "curl"
