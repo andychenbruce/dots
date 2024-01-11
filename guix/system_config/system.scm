@@ -89,20 +89,20 @@
  (file-systems (cons* (file-system
 		       (mount-point "/")
 		       (device (uuid
-				"459af246-2ef1-4dda-a268-7304f50e3633"
+				"9a768366-aee4-4ad9-9f8a-b477efe016c7"
 				'btrfs))
 		       (options "compress=zstd")
 		       (type "btrfs"))
 		      (file-system
 		       (mount-point "/swap")
 		       (device (uuid
-				"459af246-2ef1-4dda-a268-7304f50e3633"
+				"9a768366-aee4-4ad9-9f8a-b477efe016c7"
 				'btrfs))
 		       (options "subvol=swap")
 		       (type "btrfs"))
 		      (file-system
 		       (mount-point "/boot/efi")
-		       (device (uuid "6AC5-B302"
+		       (device (uuid "1E64-CCC7"
 				     'fat32))
 		       (type "vfat")) 
 		      (file-system

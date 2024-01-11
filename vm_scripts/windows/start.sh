@@ -3,7 +3,7 @@
 GENERIC_OPTIONS=( 
     -nodefaults
     -enable-kvm
-    -bios /gnu/store/dk4m2z88bhfwj6m4s2jmz3nd2hbnc7q0-ovmf-20170116-1.13a50a6/share/firmware/ovmf_x64.bin
+    -bios ~/.guix-home/profile/share/firmware/ovmf_x64.bin
     -cpu host,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time
     -m 8G
     -smp cpus=4
@@ -49,6 +49,6 @@ qemu-system-x86_64 \
     "${GPU_OPTIONS[@]}" \
     "${DISK_OPTIONS[@]}" \
     "${SPICE_OPTIONS[@]}" \
-    #-drive file=/mnt/poo/stuff/isos/windows/virtio_drivers/virtio-win-0.1.229.iso,media=cdrom
-    #-drive file=/mnt/poo/stuff/isos/windows/win10/en-us_windows_10_enterprise_ltsc_2021_x64_dvd_d289cf96.iso,media=cdrom \
+    #-drive file=/mnt/poo/stuff/isos/windows/virtio_drivers/virtio-win-0.1.240.iso,media=cdrom \
+    #-drive file=/mnt/poo/stuff/isos/windows/win10/en-us_windows_10_enterprise_ltsc_2021_x64_dvd_d289cf96.iso,media=cdrom
 

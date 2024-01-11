@@ -3,7 +3,7 @@
 GENERIC_OPTIONS=( 
     -nodefaults
     -enable-kvm
-    -bios /gnu/store/dk4m2z88bhfwj6m4s2jmz3nd2hbnc7q0-ovmf-20170116-1.13a50a6/share/firmware/ovmf_x64.bin
+    -bios ~/.guix-home/profile/share/firmware/ovmf_x64.bin
     -cpu host
     -m 4G
     -smp cpus=2
