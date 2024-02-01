@@ -9,12 +9,16 @@
  '(treesit-font-lock-level 4))
 (setq auto-mode-alist
       (append '(("\\.rs\\'" . rust-ts-mode))
+	      '(("\\.tsx\\'" . tsx-ts-mode))
+	      '(("\\.ts\\'" . typescript-ts-mode))
               auto-mode-alist))
 (setq major-mode-remap-alist
       '((sh-mode . bash-ts-mode)
 	(js-json-mode . json-ts-mode)
+	(javascript-mode . js-ts-mode)
 	(python-mode . python-ts-mode)
 	(conf-toml-mode . toml-ts-mode)
+	(css-mode . css-ts-mode)
 	(c-mode . c-ts-mode)
 	(c++-mode . c++-ts-mode)
 	(c-or-c++-mode . c-or-c++-ts-mode)))
@@ -22,6 +26,5 @@
 (set-fontset-font t 'han "Noto Sans CJK SC")
 (set-fontset-font t 'kana "Noto Sans CJK JP")
 (set-fontset-font t 'hangul "Noto Sans CJK KR")
-(set-fontset-font t 'balinese "Noto Sans Balinese")
-(custom-set-faces
- '(default ((t (:family "Noto Sans Mono")))))
+;; (custom-set-faces
+;;  '(default ((t (:family "Noto Sans Mono")))))

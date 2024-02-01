@@ -46,7 +46,7 @@
 		    %base-packages)))
  (services
   (append (list
-	   (service bluetooth-service-type)
+	   ;;(service bluetooth-service-type)
 	   (service openssh-service-type)
 	   (service upower-service-type)
 	   (service accountsservice-service-type)
