@@ -11,6 +11,7 @@
       (append '(("\\.rs\\'" . rust-ts-mode))
 	      '(("\\.tsx\\'" . tsx-ts-mode))
 	      '(("\\.ts\\'" . typescript-ts-mode))
+	      '(("\\.yml\\'" . yaml-ts-mode))
               auto-mode-alist))
 (setq major-mode-remap-alist
       '((sh-mode . bash-ts-mode)
@@ -26,5 +27,3 @@
 (set-fontset-font t 'han "Noto Sans CJK SC")
 (set-fontset-font t 'kana "Noto Sans CJK JP")
 (set-fontset-font t 'hangul "Noto Sans CJK KR")
-;; (custom-set-faces
-;;  '(default ((t (:family "Noto Sans Mono")))))
