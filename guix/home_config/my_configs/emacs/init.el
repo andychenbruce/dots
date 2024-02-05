@@ -1,5 +1,5 @@
 (custom-set-variables
- '(custom-enabled-themes '(tango-dark))
+ '(custom-enabled-themes '(modus-vivendi))
  '(default-input-method "chinese-tonepy-punct")
  '(fido-vertical-mode t)
  '(inhibit-startup-screen t)
@@ -23,6 +23,11 @@
 	(c-mode . c-ts-mode)
 	(c++-mode . c++-ts-mode)
 	(c-or-c++-mode . c-or-c++-ts-mode)))
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+	       '((rust-ts-mode) .
+		 ("rust-analyzer"
+		  :initializationOptions (:check (:command "clippy"))))))
 (set-fontset-font t 'cjk-misc "Noto Sans CJK SC")
 (set-fontset-font t 'han "Noto Sans CJK SC")
 (set-fontset-font t 'kana "Noto Sans CJK JP")
