@@ -18,7 +18,7 @@ NETWORK_OPTIONS=(
     -nic user,model=virtio-net-pci,hostfwd=tcp::6666-:6666,hostfwd=tcp::8888-:22 )
 
 GPU_OPTIONS=(
-    -vga qxl )
+    -device virtio-gpu-gl )
 
 DISK_OPTIONS=(
     -drive file=disk.qcow2,index=0,media=disk,if=virtio )

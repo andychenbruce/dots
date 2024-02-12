@@ -21,7 +21,7 @@
   (keyboard-layout (keyboard-layout "us"))
   (host-name "poopcomputer")
   (kernel linux)
-  (kernel-arguments '())
+  (kernel-arguments '("module_blacklist=nouveau"))
   (initrd microcode-initrd)
   (firmware (list linux-firmware sof-firmware))
   (users
