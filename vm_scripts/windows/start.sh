@@ -19,7 +19,7 @@ NETWORK_OPTIONS=(
     -nic user,model=virtio-net-pci )
 
 GPU_OPTIONS=(
-    -device virtio-gpu-gl )
+    -device virtio-vga-gl )
 
 DISK_OPTIONS=(
     -drive file=disk.qcow2,index=0,media=disk,if=virtio )
