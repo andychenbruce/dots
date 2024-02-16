@@ -3,11 +3,12 @@
 GENERIC_OPTIONS=( 
     -nodefaults
     -enable-kvm
-    -cpu host,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time
-    -m 8G
-    -smp cpus=8
-    -rtc base=localtime,clock=host
-    -device virtio-balloon
+    -cpu host
+    -m 4G
+    -smp cpus=2
+    -nographic
+    -serial mon:stdio
+    -device virtio-balloon-pci
     -device virtio-rng-pci )
 
 AUDIO_OPTIONS=( 
@@ -16,10 +17,10 @@ AUDIO_OPTIONS=(
     -device hda-output,audiodev=snd0 )
 
 NETWORK_OPTIONS=(
-    -nic user,model=virtio-net-pci )
+    -nic user,model=virtio-net-pci,hostfwd=tcp::6666-:6666,hostfwd=tcp::8888-:22 )
 
 GPU_OPTIONS=(
-    -device virtio-vga-gl )
+    -device virtio-gpu-gl )
 
 DISK_OPTIONS=(
     -drive file=disk.qcow2,index=0,media=disk,if=virtio
@@ -44,15 +45,10 @@ SPICE_OPTIONS=(
     -chardev spiceport,name=org.spice-space.webdav.0,id=charchannel1
     -device virtserialport,chardev=charchannel1,id=channel1,name=org.spice-space.webdav.0 )
 
-
 qemu-system-x86_64 \
     "${GENERIC_OPTIONS[@]}" \
     "${AUDIO_OPTIONS[@]}" \
     "${NETWORK_OPTIONS[@]}" \
     "${GPU_OPTIONS[@]}" \
     "${DISK_OPTIONS[@]}" \
-    "${SPICE_OPTIONS[@]}" \
-    -device usb-ehci,id=ehci \
-    #-drive file=/mnt/poo/stuff/isos/virtio-win-0.1.240.iso,media=cdrom \
-    #-drive file=/mnt/poo/stuff/isos/en-us_windows_10_enterprise_ltsc_2021_x64_dvd_d289cf96.iso,media=cdrom \
-    #-device usb-host,hostbus=3,hostaddr=38    
+    "${SPICE_OPTIONS[@]}"
