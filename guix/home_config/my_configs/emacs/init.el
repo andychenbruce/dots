@@ -4,6 +4,7 @@
  '(fido-vertical-mode t)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
+ '(mpc-songs-format "%-5{Time} %200{Title}")
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(treesit-font-lock-level 4))
