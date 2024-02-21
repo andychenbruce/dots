@@ -84,7 +84,7 @@
 	       (desktop     "$HOME/桌面")
 	       (documents   "$HOME/文档")
 	       (download    "$HOME/下载")
-	       (music       "$HOME/.mpd/音乐")
+	       (music       "$HOME/音乐")
 	       (pictures    "$HOME/图片")
 	       (publicshare "$HOME/公共")
 	       (templates   "$HOME/模板")
