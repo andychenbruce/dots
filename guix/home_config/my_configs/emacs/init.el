@@ -1,6 +1,7 @@
 (custom-set-variables
  '(custom-enabled-themes '(modus-vivendi))
  '(default-input-method "chinese-tonepy-punct")
+ '(explicit-shell-file-name "bash")
  '(fido-vertical-mode t)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
@@ -13,6 +14,7 @@
 	      '(("\\.tsx\\'" . tsx-ts-mode))
 	      '(("\\.ts\\'" . typescript-ts-mode))
 	      '(("\\.yml\\'" . yaml-ts-mode))
+	      '(("\\CMakeLists.txt\\'" . cmake-ts-mode))
               auto-mode-alist))
 (setq major-mode-remap-alist
       '((sh-mode . bash-ts-mode)
@@ -33,3 +35,5 @@
 (set-fontset-font t 'han "Noto Sans CJK SC")
 (set-fontset-font t 'kana "Noto Sans CJK JP")
 (set-fontset-font t 'hangul "Noto Sans CJK KR")
+(add-hook 'eshell-mode-hook '(lambda ()
+                   (setenv "TERM" "dumb-emacs-ansi")))

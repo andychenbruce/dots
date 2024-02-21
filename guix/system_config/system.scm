@@ -8,6 +8,7 @@
  (guix packages))
 (use-service-modules desktop networking ssh xorg dbus sound)
 (use-package-modules
+ shells
  vim
  wm
  bash
@@ -30,7 +31,7 @@
      (name "pooman123")
      (comment "Pooman123")
      (group "users")
-     (shell (file-append bash "/bin/bash"))
+     (shell (file-append fish "/bin/fish"))
      (home-directory "/home/pooman123")
      (supplementary-groups '("wheel" "netdev" "audio" "video" "kvm" "docker")))
     %base-user-accounts))
