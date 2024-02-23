@@ -1,7 +1,7 @@
 (custom-set-variables
  '(custom-enabled-themes '(modus-vivendi))
  '(default-input-method "chinese-tonepy-punct")
- '(explicit-shell-file-name "bash")
+ '(explicit-shell-file-name "bash --rcfile /etc/bashrc")
  '(fido-vertical-mode t)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
