@@ -1,12 +1,12 @@
 (custom-set-variables
  '(custom-enabled-themes '(modus-vivendi))
  '(default-input-method "chinese-tonepy-punct")
- '(explicit-shell-file-name "bash --rcfile /etc/bashrc")
  '(fido-vertical-mode t)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
  '(mpc-songs-format "%-5{Time} %200{Title}")
  '(scroll-bar-mode nil)
+ '(term-mode-hook '(lambda () (toggle-truncate-lines 1)))
  '(tool-bar-mode nil)
  '(treesit-font-lock-level 4))
 (setq auto-mode-alist

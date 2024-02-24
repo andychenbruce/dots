@@ -25,3 +25,6 @@ if set --query GUIX_ENVIRONMENT
     set --export LD_LIBRARY_PATH $LIBRARY_PATH
 end
 
+function emacs_dir_track_escape -e fish_prompt
+  printf '\032/%s\n' "$PWD" 1>&2
+end
