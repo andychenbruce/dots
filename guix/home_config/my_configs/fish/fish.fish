@@ -15,6 +15,8 @@ if status is-login
    fenv source $CARGO_HOME/env
 
    set --path --prepend PATH "$HOME/.local/bin:$PATH"
+
+   set --export MPD_HOST "/tmp/mpd.sock"
 end
 
 function enter
