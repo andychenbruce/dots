@@ -1,6 +1,7 @@
 (custom-set-variables
  '(custom-enabled-themes '(modus-vivendi))
  '(default-input-method "chinese-tonepy-punct")
+ '(eldoc-echo-area-use-multiline-p nil)
  '(fido-vertical-mode t)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
