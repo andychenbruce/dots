@@ -4,10 +4,8 @@ GENERIC_OPTIONS=(
     -nodefaults
     -enable-kvm
     -cpu host
-    -m 4G
-    -smp cpus=2
-    -nographic
-    -serial mon:stdio
+    -m 8G
+    -smp cpus=8
     -device virtio-balloon-pci
     -device virtio-rng-pci )
 
@@ -51,4 +49,6 @@ qemu-system-x86_64 \
     "${NETWORK_OPTIONS[@]}" \
     "${GPU_OPTIONS[@]}" \
     "${DISK_OPTIONS[@]}" \
-    "${SPICE_OPTIONS[@]}"
+    "${SPICE_OPTIONS[@]}" \
+    # -device usb-ehci,id=ehci \
+    # -device usb-host,hostbus=3,hostaddr=81

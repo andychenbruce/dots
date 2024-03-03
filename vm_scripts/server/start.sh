@@ -6,8 +6,9 @@ GENERIC_OPTIONS=(
     -cpu host
     -m 4G
     -smp cpus=2
-    -nographic
-    -serial mon:stdio
+    # -nographic
+    # -serial mon:stdio
+    -device virtio-vga
     -device virtio-balloon-pci
     -device virtio-rng-pci )
 

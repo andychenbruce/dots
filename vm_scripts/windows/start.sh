@@ -52,7 +52,5 @@ qemu-system-x86_64 \
     "${GPU_OPTIONS[@]}" \
     "${DISK_OPTIONS[@]}" \
     "${SPICE_OPTIONS[@]}" \
-    -device usb-ehci,id=ehci \
     #-drive file=/mnt/poo/stuff/isos/virtio-win-0.1.240.iso,media=cdrom \
-    #-drive file=/mnt/poo/stuff/isos/en-us_windows_10_enterprise_ltsc_2021_x64_dvd_d289cf96.iso,media=cdrom \
-    #-device usb-host,hostbus=3,hostaddr=38    
+    #-drive file=/mnt/poo/stuff/isos/en-us_windows_10_enterprise_ltsc_2021_x64_dvd_d289cf96.iso,media=cdrom    
