@@ -48,7 +48,7 @@
       "firefox"
       "intel-media-driver-nonfree"
       ;; -- vm
-      "virt-viewer"
+      "spice-gtk"
       "qemu"
       "ovmf"
       ;; -- utils
@@ -89,15 +89,6 @@
 	       (publicshare "$HOME/公共")
 	       (templates   "$HOME/模板")
 	       (videos      "$HOME/视频")))
-     ;; (service home-bash-service-type
-     ;; 	    (home-bash-configuration
-     ;; 	     (bashrc
-     ;; 	      (list
-     ;; 	       (local-file "my_configs/bash/bashrc_extra.sh")))
-     ;; 	     (bash-profile
-     ;; 	      (list
-     ;; 	       (local-file "my_configs/bash/bash_profile_extra.sh")))))
-     ;; (service home-fish-service-type)
      (simple-service 'variant-packages-service
 		     home-channels-service-type
 		     (list
