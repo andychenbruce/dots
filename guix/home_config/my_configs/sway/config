@@ -12,6 +12,8 @@ exec pipewire
 exec pipewire-pulse
 exec wireplumber
 
+exec swaybg --image "$HOME/图片/wallpaper/wallpaper.png"
+
 exec swayidle -w \
      timeout 300 'swaylock -f --color 000000' \
      timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
@@ -109,7 +111,7 @@ bar {
 	colors {
 		statusline #ffffff
 		background #323232
-		inactive_workspace #32323200 #32323200 #5c5c5c
+		inactive_workspace #101010 #272727 #5c5c5c
 	}
 }
 

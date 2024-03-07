@@ -2,11 +2,12 @@ set --prepend fish_function_path "$HOME/.guix-home/profile/share/fish/functions"
 
 if status is-login
    fenv source /run/current-system/profile/etc/profile
-   fenv source $HOME/.config/guix/current/etc/profile
 
    set --export HOME_ENVIRONMENT $HOME/.guix-home
    $HOME_ENVIRONMENT/on-first-login
    fenv source $HOME_ENVIRONMENT/setup-environment
+
+   fenv source $HOME/.config/guix/current/etc/profile
 
    set --path --prepend PATH "/run/setuid-programs"
 
