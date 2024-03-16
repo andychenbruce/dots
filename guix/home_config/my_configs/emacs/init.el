@@ -1,5 +1,5 @@
 (custom-set-variables
- '(custom-enabled-themes '(modus-vivendi))
+ '(custom-enabled-themes '(modus-operandi))
  '(default-input-method "chinese-tonepy-punct")
  '(current-language-environment "UTF-8")
  '(eldoc-echo-area-use-multiline-p nil)
