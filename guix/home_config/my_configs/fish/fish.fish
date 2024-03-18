@@ -3,7 +3,7 @@ set --prepend fish_function_path "$HOME/.guix-home/profile/share/fish/functions"
 if status is-login
   fenv source /run/current-system/profile/etc/profile
 
-  set HOME_ENVIRONMENT=$HOME/.guix-home
+  set HOME_ENVIRONMENT $HOME/.guix-home
   fenv source $HOME_ENVIRONMENT/setup-environment
   $HOME_ENVIRONMENT/on-first-login
 

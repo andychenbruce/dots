@@ -33,9 +33,5 @@
 	       '((rust-ts-mode) .
 		 ("rust-analyzer"
 		  :initializationOptions (:check (:command "clippy"))))))
-(set-fontset-font t 'cjk-misc "Noto Sans CJK SC")
-(set-fontset-font t 'han "Noto Sans CJK SC")
-(set-fontset-font t 'kana "Noto Sans CJK JP")
-(set-fontset-font t 'hangul "Noto Sans CJK KR")
 (add-hook 'eshell-mode-hook '(lambda ()
-                   (setenv "TERM" "dumb-emacs-ansi")))
+			       (setenv "TERM" "dumb-emacs-ansi")))
