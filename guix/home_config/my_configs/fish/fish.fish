@@ -1,6 +1,8 @@
 set --prepend fish_function_path "$HOME/.guix-home/profile/share/fish/functions"
 
 if status is-login
+  set --path --erase PATH
+
   fenv source /run/current-system/profile/etc/profile
 
   set HOME_ENVIRONMENT $HOME/.guix-home
