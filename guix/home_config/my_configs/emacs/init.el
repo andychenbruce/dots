@@ -21,7 +21,7 @@
  '(scroll-bar-mode nil)
  '(term-mode-hook '(lambda nil (toggle-truncate-lines 1)))
  '(tool-bar-mode nil)
- '(tramp-remote-path '(tramp-own-remote-path))
+ '(tramp-remote-path '(tramp-own-remote-path) nil 'tramp)
  '(treesit-font-lock-level 4))
 (setq auto-mode-alist
       (append '(("\\.rs\\'" . rust-ts-mode))

@@ -43,7 +43,7 @@
       "adwaita-icon-theme"
       "hicolor-icon-theme"
       ;; -- emacs
-      "emacs-pgtk-xwidgets"
+      "emacs-next-pgtk"
       ;; -- browser
       "firefox"
       "intel-media-driver-nonfree"
